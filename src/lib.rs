@@ -51,11 +51,11 @@
 #[macro_export]
 macro_rules! tuple_impl(
   ($call:ident => $first:ident $second:ident $($id: ident)+) => (
-    tuple_impl!(__impl $call => $first $second; $($id)+);
+    $crate::tuple_impl!(__impl $call => $first $second; $($id)+);
   );
   (__impl $call:ident => $($current:ident)*; $head:ident $($id: ident)+) => (
     $call!($($current)*);
-    tuple_impl!(__impl $call => $($current)* $head; $($id)+);
+    $crate::tuple_impl!(__impl $call => $($current)* $head; $($id)+);
   );
   (__impl $call:ident => $($current:ident)*; $head:ident) => (
     $call!($($current)*);
