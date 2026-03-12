@@ -36,8 +36,15 @@ macro_rules! impl_filter {
     };
 }
 
-// Implement Filter for tuples of size 1 to 26.
+// Implement Filter for tuples of size 2 to 26.
 tuple_impl!(impl_filter => A B C D E F G H I J K L M N O P Q R S T U V W X Y Z);
+```
+
+Or even simpler when generating for all characters
+
+```rust
+/// Implement Filter for tuples of size 2 to 26.
+tuple_impl_full!(print_tuple);
 ```
 
 ## Author

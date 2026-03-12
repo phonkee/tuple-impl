@@ -63,6 +63,14 @@ macro_rules! tuple_impl(
   );
 );
 
+/// A convenience macro to generate implementations for tuples of all combinations of identifiers from A to Z.
+#[macro_export]
+macro_rules! tuple_impl_full {
+    ($call:ident) => {
+        tuple_impl!($call => A B C D E F G H I J K L M N O P Q R S T U V W X Y Z);
+    };
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
@@ -76,8 +84,10 @@ mod tests {
             };
         }
 
+        // Generate implementations for tuples of all combinations of identifiers from A to Z.
         tuple_impl!(print_tuple => A B C D E F G H I J K L M N O P Q R S T U V W X Y Z);
 
-        // This will print all combinations of tuples from A to Z
+        // Generate implementations for tuples of all combinations of identifiers from A to Z using the convenience macro.
+        tuple_impl_full!(print_tuple);
     }
 }
